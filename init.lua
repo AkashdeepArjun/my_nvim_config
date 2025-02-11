@@ -23,7 +23,7 @@ local themes = {
 require('lazy').setup({
   -- require(themes[env_var_nvim_theme]),
   -- require 'plugins.colortheme',
-  require 'plugins.themes.kanagawa',
+  require 'plugins.themes.gruvbox',
   require 'plugins.neo-tree',
   require 'plugins.lualine',
   require 'plugins.bufferline',
@@ -35,6 +35,10 @@ require('lazy').setup({
   require 'plugins.alpha',
   require 'plugins.indent-blankline',
   require 'plugins.misc',
+  require 'plugins.color-picker',
+  require 'plugins.fzf',
+  -- require 'plugins.themery',
+  -- require 'plugins.marks',
 }, {
 
   ui = {
