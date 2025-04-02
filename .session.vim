@@ -18,11 +18,16 @@ badd +3 test.css
 badd +9 .session.vim
 badd +12 lua/plugins/auto_session.lua
 badd +47 init.lua
-badd +10 hi.java
-badd +1 lua/plugins/color-highlight.lua
+badd +7 hi.java
+badd +8 lua/plugins/color-highlight.lua
+badd +11 lua/plugins/lualine.lua
+badd +32 lua/plugins/lsp.lua
+badd +122 lua/plugins/autocomplete.lua
+badd +1 key_info.txt
+badd +348 health://
 argglobal
 %argdel
-edit hi.java
+edit lua/plugins/autocomplete.lua
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -39,12 +44,13 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-wincmd =
+exe 'vert 1resize ' . ((&columns * 40 + 67) / 134)
+exe 'vert 2resize ' . ((&columns * 93 + 67) / 134)
 tcd ~/.config/nvim
 argglobal
 enew
 file ~/.config/nvim/neo-tree\ filesystem\ \[1]
-balt ~/.config/nvim/hi.java
+balt ~/.config/nvim/lua/plugins/autocomplete.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -56,7 +62,7 @@ setlocal fen
 lcd ~/.config/nvim
 wincmd w
 argglobal
-balt ~/.config/nvim/lua/plugins/color-highlight.lua
+balt ~/.config/nvim/lua/plugins/lsp.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -67,16 +73,17 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 10 - ((9 * winheight(0) + 14) / 29)
+let s:l = 122 - ((24 * winheight(0) + 14) / 29)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 10
-normal! 0
+keepjumps 122
+normal! 06|
 lcd ~/.config/nvim
 wincmd w
 2wincmd w
-wincmd =
+exe 'vert 1resize ' . ((&columns * 40 + 67) / 134)
+exe 'vert 2resize ' . ((&columns * 93 + 67) / 134)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
