@@ -114,4 +114,3 @@ return {
     end, { desc = '[/] Fuzzily search in current buffer' })
   end,
 }
- 

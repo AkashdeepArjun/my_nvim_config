@@ -13,11 +13,16 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 init.lua
+badd +53 lua/core/keymaps.lua
+badd +3 test.css
+badd +9 .session.vim
+badd +12 lua/plugins/auto_session.lua
+badd +47 init.lua
+badd +10 hi.java
+badd +1 lua/plugins/color-highlight.lua
 argglobal
 %argdel
-$argadd init.lua
-edit init.lua
+edit hi.java
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -34,12 +39,12 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 40 + 95) / 190)
-exe 'vert 2resize ' . ((&columns * 149 + 95) / 190)
+wincmd =
+tcd ~/.config/nvim
 argglobal
 enew
-file neo-tree\ filesystem\ \[1]
-balt init.lua
+file ~/.config/nvim/neo-tree\ filesystem\ \[1]
+balt ~/.config/nvim/hi.java
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -48,8 +53,10 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
+lcd ~/.config/nvim
 wincmd w
 argglobal
+balt ~/.config/nvim/lua/plugins/color-highlight.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -60,15 +67,16 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 17) / 34)
+let s:l = 10 - ((9 * winheight(0) + 14) / 29)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
+keepjumps 10
 normal! 0
+lcd ~/.config/nvim
 wincmd w
-exe 'vert 1resize ' . ((&columns * 40 + 95) / 190)
-exe 'vert 2resize ' . ((&columns * 149 + 95) / 190)
+2wincmd w
+wincmd =
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

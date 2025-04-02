@@ -35,10 +35,19 @@ require('lazy').setup({
   require 'plugins.alpha',
   require 'plugins.indent-blankline',
   require 'plugins.misc',
-  require 'plugins.color-picker',
+  -- require 'plugins.color-picker',
   require 'plugins.fzf',
+  -- require 'plugins.color-highlight',
+  require 'plugins.neaterm',
   -- require 'plugins.themery',
-  -- require 'plugins.marks',
+  require 'plugins.marks',
+  require 'plugins.auto_session',
+  -- require 'plugins.muren',
+  require 'plugins.tokyonight',
+  require 'plugins.nvim-planery',
+  require 'plugins.spectre',
+  require 'plugins.ccc',
+  require 'plugins.image_preview',
 }, {
 
   ui = {

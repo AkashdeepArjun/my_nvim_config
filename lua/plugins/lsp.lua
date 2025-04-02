@@ -24,8 +24,6 @@ return { -- LSP Configuration & Plugins
         },
       },
     },
-    
-    
   },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
@@ -217,7 +215,16 @@ return { -- LSP Configuration & Plugins
       bashls = {},
       graphql = {},
       cssls = {},
-      ltex = {},
+      ltex = {
+
+        filetypes = { 'latex', 'typst', 'typ', 'bib', 'markdown', 'plaintex', 'tex' },
+
+        settings = {
+          ltex = {
+            enabled = { 'latex', 'typst', 'typ', 'bib', 'markdown', 'plaintex', 'tex' },
+          },
+        },
+      },
       texlab = {},
     }
 
